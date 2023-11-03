@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>word Counter</title>
+	<style type="text/css">
+		body{
+			margin: 50PX 50 px;
+			width: 97%;
+			margin-top: 60px;
+		}
+		h1{
+			text-align: center;
+			background-color: black;
+			padding: 20px;
+			margin: 0px;
+			color: white;
+		}
+		#textbox{
+/*			text-align: left;*/
+			width: 99%;	
+			margin: 0px;
+			font-weight: bold;
+
+		}
+		p{
+			text-align:center;
+			background-color: black;
+			margin: 0px;
+			padding: 10px;
+			color: white;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<h1>Word Counter</h1>
+	<textarea id="textbox" cols="30" rows="10"></textarea>
+	<p>
+		<span id="word">0</span> word and  
+		<span id="char">0</span> characters
+	</p>
+
+
+	<script>
+		let textbox =document.getElementById('textbox');
+
+		textbox.addEventListener('input',function () {
+			let text = this.value;
+			let char = text.length;
+			document.getElementById("char").innerHTML = char;
+
+			text = text.trim();	////remove the first and last space from the text.it will take the only word count not for space or more  then space ...
+			let words = text.split(" ");
+			let cleanlist = words.filter(function (elm) {
+				return elm != "";
+			})
+			console.log();
+			document.getElementById("word").innerHTML = cleanlist.length;
+
+		})
+	</script>	
+</body>
+</html>
